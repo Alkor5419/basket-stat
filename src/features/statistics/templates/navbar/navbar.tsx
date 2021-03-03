@@ -2,18 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 const NavWrap = styled.div`
-  width: 1200px;
-  height: 200px;
+  height: 100px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  background-color: #7a0875;
+  padding: 0 1.5em;
 `;
-const RouteItems = styled.div``;
-const ToggleThemeWrap = styled.div``;
-export const Navbar: React.FC = ({ leftItems, toggleTheme }) => {
-  return (
-    <NavWrap>
-      <RouteItems>{leftItems}</RouteItems>
-      <ToggleThemeWrap>{toggleTheme}</ToggleThemeWrap>
-    </NavWrap>
-  );
+
+export const Navbar: React.FC = ({ children }) => {
+  return <NavWrap>{children}</NavWrap>;
 };

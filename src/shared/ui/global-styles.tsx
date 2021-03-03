@@ -6,10 +6,9 @@ export const GlobalStyles = createGlobalStyle`
   
   * {
     box-sizing:border-box;
-  }
+  } 
   body {
-    color: ${({ theme }) => theme.textColors.black};
-    font-family: ${({ theme }) => theme.fonts.IBMRegular}, sans-serif;
+    color: ${({ theme }) => theme.colors.main};
     font-size: 16px;
     line-height: 1.3;
     min-width: 360px;

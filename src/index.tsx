@@ -1,14 +1,17 @@
 import React from "react";
 import { render } from "react-dom";
-import App from "./App";
-
+import { lightTheme } from "./shared/ui/theme";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./shared/ui/global-styles";
+import { Routes } from "./routes";
 render(
   <React.StrictMode>
-    <ThemeProvider theme={}>
+    <ThemeProvider
+      //TODO change theme!!!
+      theme={lightTheme}
+    >
       <GlobalStyles />
-      <App />
+      <Routes />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
