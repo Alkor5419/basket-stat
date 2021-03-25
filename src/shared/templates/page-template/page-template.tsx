@@ -1,10 +1,6 @@
 import React from "react";
-import { Links } from "../../atoms";
-import {
-  Navbar,
-  RouteLinks,
-  ToggleTheme,
-} from "../../templates";
+import { Toggle, Links } from "../../atoms";
+import { Navbar, RouteLinks, ToggleTheme } from "../index";
 
 export const PageTemplate: React.FC = ({ children }) => {
   return (
@@ -15,7 +11,7 @@ export const PageTemplate: React.FC = ({ children }) => {
           <Links path="/teams">Teams</Links>
         </RouteLinks>
         <ToggleTheme>
-          <h2>hello</h2>
+          <Toggle />
         </ToggleTheme>
       </Navbar>
       {/* Шаблон body */}

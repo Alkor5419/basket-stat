@@ -1,5 +1,5 @@
 import React from "react";
-import { PageTemplate } from "../../templates";
+import { PageTemplate } from "../../../../shared/templates";
 
 export const LiveMatches = () => {
   return (

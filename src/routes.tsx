@@ -4,10 +4,8 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import {
-  LiveMatches,
-  Teams,
-} from "./features/statistics/pages";
+import { LiveMatches } from "./features/live/pages";
+import { Teams } from "./features/teams/pages/teams/teams";
 
 export const Routes: React.FC = () => {
   return (
