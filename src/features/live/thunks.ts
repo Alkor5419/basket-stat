@@ -5,10 +5,10 @@ import {
   fetchLiveRequest,
   fetchLiveSuccess,
 } from "./actions";
-import { FetchLiveDispatchTypes } from "./types";
+import { LiveMathesDispatchTypes } from "./types";
 
 export const fetchLiveMatches = () => async (
-  dispatch: Dispatch<FetchLiveDispatchTypes>
+  dispatch: Dispatch<LiveMathesDispatchTypes>
 ) => {
   dispatch(fetchLiveRequest());
   try {

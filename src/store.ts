@@ -1,3 +1,4 @@
+import { liveReducer } from "./features/live/reducers";
 import {
   createStore,
   applyMiddleware,
@@ -6,7 +7,7 @@ import {
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({ liveReducer });
 
 const store = createStore(
   rootReducer,

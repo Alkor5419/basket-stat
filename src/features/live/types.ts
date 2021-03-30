@@ -13,7 +13,7 @@ export type FetchLiveFailureType = {
   type: string;
   payload: any;
 };
-export type FetchLiveDispatchTypes =
+export type LiveMathesDispatchTypes =
   | FetchLiveRequestType
   | FetchLiveSuccessType
   | FetchLiveFailureType;

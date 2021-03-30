@@ -1,7 +1,13 @@
 import React from "react";
 import { Toggle, Links } from "../../atoms";
 import { Navbar, RouteLinks, ToggleTheme } from "../index";
-
+import styled from "styled-components";
+const BodyWrap = styled.div`
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+`;
 export const PageTemplate: React.FC = ({ children }) => {
   return (
     <>
@@ -14,8 +20,7 @@ export const PageTemplate: React.FC = ({ children }) => {
           <Toggle />
         </ToggleTheme>
       </Navbar>
-      {/* Шаблон body */}
-      {children}
+      <BodyWrap>{children}</BodyWrap>
     </>
   );
 };

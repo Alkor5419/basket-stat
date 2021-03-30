@@ -1,11 +1,12 @@
 import { mainUrl, headers } from "./constants";
-
-export const liveFetch = async () => {
-  const url = `${mainUrl}/games/live/`;
+export const getMatch = async (matchId: string) => {
+  const url = `${mainUrl}/games/gameId/`;
+  const body = JSON.stringify(matchId);
 
   const requestOptions = {
-    method: "GET",
+    method: "POST",
     headers,
+    body,
   };
 
   try {
