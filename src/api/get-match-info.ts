@@ -1,12 +1,10 @@
 import { mainUrl, headers } from "./constants";
-export const getMatch = async (matchId: string) => {
-  const url = `${mainUrl}/games/gameId/`;
-  const body = JSON.stringify(matchId);
+export const getMatchInfo = async (matchId: number) => {
+  const url = `${mainUrl}/games/gameId/${matchId}`;
 
   const requestOptions = {
-    method: "POST",
+    method: "GET",
     headers,
-    body,
   };
 
   try {
@@ -14,7 +12,7 @@ export const getMatch = async (matchId: string) => {
     const result = await response.json();
     const { api } = result;
     const { games } = api;
-    return games;
+    return games[0];
   } catch (error) {
     console.error("error", error);
   }

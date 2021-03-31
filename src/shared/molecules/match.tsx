@@ -14,16 +14,27 @@ const RightTeam = styled.div`
   align-items: center;
   color: #444;
 `;
-export const Match = () => {
+type Props = {
+  teamA: string;
+  teamB: string;
+  scoreA: number;
+  scoreB: number;
+};
+export const Match: React.FC<Props> = ({
+  teamA,
+  teamB,
+  scoreA,
+  scoreB,
+}) => {
   return (
     <MatchTemplate>
       <LeftTeam>
-        <Title level={3}>Team A</Title>
-        <span>5</span>
+        <Title level={3}>{teamA}</Title>
+        <span>{scoreA}</span>
       </LeftTeam>
       <RightTeam>
-        <span>13</span>
-        <Title level={3}>Team B</Title>
+        <span>{scoreB}</span>
+        <Title level={3}>{teamB}</Title>
       </RightTeam>
     </MatchTemplate>
   );

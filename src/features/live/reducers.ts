@@ -1,29 +1,57 @@
+import { ActionsTypes } from "./types";
 import {
-  LiveMathesDispatchTypes,
   FETCH_LIVE_FAILURE,
   FETCH_LIVE_SUCCESS,
   FETCH_LIVE_REQUEST,
-} from "./types";
+  FETCH_MATCH_INFO_REQUEST,
+  FETCH_MATCH_INFO_FAILURE,
+  FETCH_MATCH_INFO_SUCCESS,
+} from "./actions";
 
-interface InitialStateI {
+export interface InitialStateI {
   loading: boolean;
+  matchesIds: number[];
+  liveGames: any;
 }
 
 const initialState: InitialStateI = {
   loading: false,
+  matchesIds: [11800071, 4402],
+  liveGames: [],
 };
 
 export const liveReducer = (
   state: InitialStateI = initialState,
-  action: LiveMathesDispatchTypes
+  action: ActionsTypes
 ) => {
   switch (action.type) {
     case FETCH_LIVE_FAILURE:
       return { ...state, loading: false };
     case FETCH_LIVE_SUCCESS:
-      return { ...state, loading: false };
+      return {
+        ...state,
+        loading: false,
+        matchesIds: action.payload,
+      };
     case FETCH_LIVE_REQUEST:
       return { ...state, loading: true };
+    case FETCH_MATCH_INFO_REQUEST:
+      return { ...state, loading: true };
+    case FETCH_MATCH_INFO_SUCCESS:
+      const game = {
+        gameId: action.payload.gameId,
+        fullNameA: action.payload.vTeam.fullName,
+        fullNameB: action.payload.hTeam.fullName,
+        pointsA: action.payload.vTeam.score.points,
+        pointsB: action.payload.hTeam.score.points,
+      };
+      return {
+        ...state,
+        loading: false,
+        liveGames: [...state.liveGames, game],
+      };
+    case FETCH_MATCH_INFO_FAILURE:
+      return { ...state, loading: false };
     default:
       return state;
   }

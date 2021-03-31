@@ -1,11 +1,19 @@
 import { Dispatch } from "redux";
-import { liveFetch } from "../../api/live-fetch";
+import { liveFetch, getMatchInfo } from "../../api";
+
 import {
   fetchLiveFailure,
   fetchLiveRequest,
   fetchLiveSuccess,
+  fetchMatchInfoFailure,
+  fetchMatchInfoRequest,
+  fetchMatchInfoSuccess,
 } from "./actions";
-import { LiveMathesDispatchTypes } from "./types";
+import {
+  ILiveGames,
+  LiveMathesDispatchTypes,
+  MatchInfoDispatchTypes,
+} from "./types";
 
 export const fetchLiveMatches = () => async (
   dispatch: Dispatch<LiveMathesDispatchTypes>
@@ -13,9 +21,25 @@ export const fetchLiveMatches = () => async (
   dispatch(fetchLiveRequest());
   try {
     const data = await liveFetch();
-    dispatch(fetchLiveSuccess(data));
+    const matchesIds = data.map(
+      (el: ILiveGames) => el.gameId
+    );
+    dispatch(fetchLiveSuccess(matchesIds));
   } catch (e) {
     console.error(e);
     dispatch(fetchLiveFailure(e));
+  }
+};
+
+export const fetchMatchInfo = (matchId: number) => async (
+  dispatch: Dispatch<MatchInfoDispatchTypes>
+) => {
+  dispatch(fetchMatchInfoRequest());
+  try {
+    const data = await getMatchInfo(matchId);
+    dispatch(fetchMatchInfoSuccess(data));
+  } catch (e) {
+    console.error(e);
+    dispatch(fetchMatchInfoFailure(e));
   }
 };
