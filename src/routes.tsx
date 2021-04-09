@@ -6,17 +6,25 @@ import {
 } from "react-router-dom";
 import { LiveMatches } from "./features/live/pages";
 import { Teams } from "./features/teams/pages/teams/teams";
+import { PageTemplate } from "./shared/templates";
 
-export const Routes: React.FC = () => {
+type Props = {
+  changeTheme: () => void;
+};
+export const Routes: React.FC<Props> = ({
+  changeTheme,
+}) => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/">
-          <LiveMatches />
-        </Route>
-        <Route path="/teams">
-          <Teams />
-        </Route>
+        <PageTemplate changeTheme={changeTheme}>
+          <Route path="/">
+            <LiveMatches />
+          </Route>
+          <Route path="/teams">
+            <Teams />
+          </Route>
+        </PageTemplate>
       </Switch>
     </BrowserRouter>
   );

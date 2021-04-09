@@ -2,13 +2,22 @@ import React from "react";
 import { Toggle, Links } from "../../atoms";
 import { Navbar, RouteLinks, ToggleTheme } from "../index";
 import styled from "styled-components";
+
 const BodyWrap = styled.div`
   width: 100%;
   padding: 15px;
   display: flex;
   flex-direction: column;
 `;
-export const PageTemplate: React.FC = ({ children }) => {
+
+type Props = {
+  changeTheme: () => void;
+};
+
+export const PageTemplate: React.FC<Props> = ({
+  children,
+  changeTheme,
+}) => {
   return (
     <>
       <Navbar>
@@ -17,7 +26,7 @@ export const PageTemplate: React.FC = ({ children }) => {
           <Links path="/teams">Teams</Links>
         </RouteLinks>
         <ToggleTheme>
-          <Toggle />
+          <Toggle changeTheme={changeTheme} />
         </ToggleTheme>
       </Navbar>
       <BodyWrap>{children}</BodyWrap>

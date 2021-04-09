@@ -1,3 +1,16 @@
+# SPA с отображением матчей nba
+
+## Что использовал
+
+- react
+- typescript
+- react-router-dom
+- styled components
+- normalize (styled-normalize)
+- redux
+- redux-thunk
+- ant design
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

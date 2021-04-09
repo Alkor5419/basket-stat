@@ -5,11 +5,10 @@ export const useTheme = () => {
   const [theme, setTheme] = useState<ThemeMode>(
     "lightTheme"
   );
-  const getTheme = () =>
-    window.localStorage.getItem("theme");
 
   useEffect(() => {
-    if (!getTheme()) {
+    const localTheme = window.localStorage.getItem("theme");
+    if (!localTheme) {
       window.localStorage.setItem("theme", "lightTheme");
     }
   }, []);
