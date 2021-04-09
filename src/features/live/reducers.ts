@@ -1,4 +1,4 @@
-import { ActionsTypes } from "./types";
+import { ActionsTypes, IGameInfo } from "./types";
 import {
   FETCH_LIVE_FAILURE,
   FETCH_LIVE_SUCCESS,
@@ -11,12 +11,12 @@ import {
 export interface InitialStateI {
   loading: boolean;
   matchesIds: number[];
-  liveGames: any;
+  liveGames: IGameInfo[];
 }
 
 const initialState: InitialStateI = {
   loading: false,
-  matchesIds: [11800071, 4402],
+  matchesIds: [],
   liveGames: [],
 };
 
@@ -40,8 +40,10 @@ export const liveReducer = (
     case FETCH_MATCH_INFO_SUCCESS:
       const game = {
         gameId: action.payload.gameId,
-        fullNameA: action.payload.vTeam.fullName,
-        fullNameB: action.payload.hTeam.fullName,
+        fullNameA: action.payload.vTeam.nickName,
+        fullNameB: action.payload.hTeam.nickName,
+        logoA: action.payload.vTeam.logo,
+        logoB: action.payload.hTeam.logo,
         pointsA: action.payload.vTeam.score.points,
         pointsB: action.payload.hTeam.score.points,
       };

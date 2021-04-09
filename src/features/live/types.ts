@@ -70,6 +70,8 @@ export interface IGameInfo {
   gameId: number;
   fullNameA: string;
   fullNameB: string;
+  logoA: string;
+  logoB: string;
   pointsA: number;
   pointsB: number;
 }

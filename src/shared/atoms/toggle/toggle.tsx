@@ -7,7 +7,7 @@ export const Toggle = () => {
       <Switch
         defaultChecked
         size="small"
-        onClick={() => console.log("gooo")}
+        onClick={() => console.log("sss")}
       />
     </>
   );
