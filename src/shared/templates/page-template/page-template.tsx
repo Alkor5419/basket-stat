@@ -8,6 +8,10 @@ const BodyWrap = styled.div`
   padding: 15px;
   display: flex;
   flex-direction: column;
+  background-color: ${({ theme }) =>
+    theme.colors.background};
+  height: calc(100vh - 100px);
+  overflow: hidden;
 `;
 
 type Props = {
@@ -23,6 +27,7 @@ export const PageTemplate: React.FC<Props> = ({
       <Navbar>
         <RouteLinks>
           <Links path="/">Live</Links>
+          <Links path="/calendar">Calendar</Links>
           <Links path="/teams">Teams</Links>
         </RouteLinks>
         <ToggleTheme>

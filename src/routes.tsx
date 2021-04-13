@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import { CalendarPage } from "./features/calendar/pages/calendar";
 import { LiveMatches } from "./features/live/pages";
 import { Teams } from "./features/teams/pages/teams/teams";
 import { PageTemplate } from "./shared/templates";
@@ -18,8 +19,11 @@ export const Routes: React.FC<Props> = ({
     <BrowserRouter>
       <Switch>
         <PageTemplate changeTheme={changeTheme}>
-          <Route path="/">
+          <Route path="/" exact>
             <LiveMatches />
+          </Route>
+          <Route path="/calendar">
+            <CalendarPage />
           </Route>
           <Route path="/teams">
             <Teams />

@@ -7,7 +7,7 @@ import styled from "styled-components";
 const LinkItem = styled(Link)`
   margin-right: 2em;
   text-decoration: none;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.main};
 `;
 
 type Props = {

@@ -6,7 +6,7 @@ const NavWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #7a0875;
+  background-color: #08437a;
   padding: 0 1.5em;
 `;
 
